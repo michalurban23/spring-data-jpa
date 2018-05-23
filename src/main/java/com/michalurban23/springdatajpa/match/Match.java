@@ -33,6 +33,16 @@ public class Match {
         this.goalsAwayTeam = goalsAwayTeam;
     }
 
+    public Integer getHomeTeamPoints() {
+
+        return goalsHomeTeam == goalsAwayTeam ? 1 : (goalsHomeTeam > goalsAwayTeam ? 3 : 0);
+    }
+
+    public Integer getAwayTeamPoints() {
+
+        return goalsHomeTeam == goalsAwayTeam ? 1 : (goalsHomeTeam > goalsAwayTeam ? 0 : 3);
+    }
+
     public int getId() {
         return id;
     }
@@ -84,7 +94,7 @@ public class Match {
     @Override
     public String toString() {
         return "Match #" + id +
-                ", date=" + date + " " +
+                ", " + date + ", " +
                 homeTeam.getFullName() + " " + goalsHomeTeam + ":" + goalsAwayTeam + " " + awayTeam.getFullName();
     }
 }
